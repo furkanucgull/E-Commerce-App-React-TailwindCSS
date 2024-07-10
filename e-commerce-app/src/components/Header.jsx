@@ -21,7 +21,7 @@ function Header() {
   return (
     <div>
       <div>
-        <div className="flex flex-row justify-between items-center">
+        <div className="flex flex-row justify-between items-center border-b-2 border-black">
           <div className="logo flex flex-row items-center gap-5">
             <a onClick={() => navigate('/')} href="">
               <img className="w-24 h-20 object-scale-down " src="./src/images/logo.png" alt="" />
