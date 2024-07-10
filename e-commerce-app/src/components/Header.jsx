@@ -2,8 +2,10 @@ import { SlBasket } from 'react-icons/sl';
 import { CiLight } from 'react-icons/ci';
 import { FaMoon } from 'react-icons/fa';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
+  const navigate = useNavigate();
   const [theme, setTheme] = useState(true);
   const changeTheme = () => {
     const root = document.getElementById('root');
@@ -21,7 +23,10 @@ function Header() {
       <div>
         <div className="flex flex-row justify-between items-center">
           <div className="logo flex flex-row items-center gap-5">
-            <img className="w-24 h-20 object-scale-down " src="./src/images/logo.png" alt="" />
+            <a onClick={() => navigate('/')} href="">
+              <img className="w-24 h-20 object-scale-down " src="./src/images/logo.png" alt="" />
+            </a>
+
             <p className="font-serif italic">E-Commerce</p>
           </div>
           <div className="input flex flex-row items-center gap-24">
