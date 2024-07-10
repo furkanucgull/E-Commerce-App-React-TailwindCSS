@@ -1,11 +1,15 @@
 import './App.css';
+import './index.css';
+
+import Header from './components/Header';
+import PageContainer from './container/PageContainer';
 
 function App() {
   return (
     <>
-      <div>
-        <div>e-commerce-app</div>
-      </div>
+      <PageContainer>
+        <Header />
+      </PageContainer>
     </>
   );
 }
