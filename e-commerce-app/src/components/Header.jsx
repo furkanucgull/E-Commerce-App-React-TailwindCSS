@@ -37,26 +37,28 @@ function Header() {
         <div className="flex flex-row justify-between items-center border-b-2 border-black">
           <div className="logo flex flex-row items-center gap-5">
             <a onClick={() => navigate('/')} href="">
-              <img className="w-24 h-20 object-scale-down " src="./src/images/logo.png" alt="" />
+              <img className="w-24 h-20 object-contain " src="../images/logo.png" alt="" />
             </a>
 
-            <p className="font-serif italic">E-Commerce</p>
+            <p className="font-serif italic hidden sm:block">E-Commerce</p>
           </div>
-          <div className="input flex flex-row items-center gap-24">
+          <div className="input flex flex-row  items-center gap-4 sm:gap-24">
             <input
               onChange={handleSearchChange}
-              className="outline-none 
-             border-b-2 border-gray-400 py-1
+              className="outline-none w-[150px]  sm:w-full         border-b-2 border-gray-400 py-1
              placeholder:pl-2 placeholder:italic
               "
-              placeholder="Search...                  &#128269;"
+              placeholder="Search...       &#128269;"
               type="text"
             />
-            <div className="flex flex-row gap-3 text-3xl hover:cursor-pointer">
+            <div className="flex flex-row gap-3 text-xl sm:text-3xl hover:cursor-pointer">
               {theme ? (
                 <FaMoon className="hover:bg-white text-gray-900 rounded-full hover:scale-125" onClick={changeTheme} />
               ) : (
-                <CiLight className="hover:bg-white hover:text-black rounded-full hover:scale-125" />
+                <CiLight
+                  className="hover:bg-white hover:text-black rounded-full hover:scale-125"
+                  onClick={changeTheme}
+                />
               )}
               <Badge badgeContent={products.length} color="error">
                 <SlBasket color="action" onClick={() => navigate('/basket-details')} href="" />
