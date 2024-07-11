@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 /* eslint-disable react/prop-types */
 function Product({ product }) {
-  const { id, category, description, image, price, title, rating } = product;
+  const { id, description, image, price, title, rating } = product;
   const navigate = useNavigate();
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-2">

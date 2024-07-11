@@ -54,7 +54,7 @@ function Header() {
                 />
               )}
               <Badge badgeContent={products.length} color="error">
-                <SlBasket color="action" />
+                <SlBasket color="action" onClick={() => navigate('/basket-details')} href="" />
               </Badge>
             </div>
           </div>

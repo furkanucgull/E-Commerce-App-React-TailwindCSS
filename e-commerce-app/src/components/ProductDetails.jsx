@@ -7,11 +7,12 @@ import { IoIosStar } from 'react-icons/io';
 import { CiCirclePlus, CiCircleMinus } from 'react-icons/ci';
 import { MdAddShoppingCart } from 'react-icons/md';
 import { addToBasket } from '../redux/slices/BasketSlice';
+import BasketList from './BasketList';
 
 function ProductDetails() {
   const { id } = useParams();
   const { products, selectedProduct } = useSelector(store => store.product);
-  const { category, description, image, price, title, rating } = selectedProduct;
+  const { description, image, price, title } = selectedProduct;
 
   const [count, setCount] = useState(0);
 
