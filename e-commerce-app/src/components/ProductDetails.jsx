@@ -1,17 +1,41 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { setSelectedProduct } from '../redux/slices/ProductSlice';
 import { IoStarOutline } from 'react-icons/io5';
 import { IoIosStar } from 'react-icons/io';
+import { CiCirclePlus, CiCircleMinus } from 'react-icons/ci';
+import { MdAddShoppingCart } from 'react-icons/md';
+import { addToBasket } from '../redux/slices/BasketSlice';
 
 function ProductDetails() {
   const { id } = useParams();
   const { products, selectedProduct } = useSelector(store => store.product);
   const { category, description, image, price, title, rating } = selectedProduct;
 
-  const dispatch = useDispatch();
+  const [count, setCount] = useState(0);
 
+  const increment = () => {
+    setCount(c => c + 1);
+  };
+  const decrement = () => {
+    if (count > 0) {
+      setCount(c => c - 1);
+    }
+  };
+
+  const dispatch = useDispatch();
+  const addBasket = () => {
+    const payload = {
+      id,
+      title,
+      price,
+      image,
+      description,
+      count,
+    };
+    dispatch(addToBasket(payload));
+  };
   useEffect(() => {
     getProductById();
   }, []);
@@ -47,7 +71,17 @@ function ProductDetails() {
         <div className="price text-lg ">
           {price} <span className="font-bold italic">$</span>{' '}
         </div>
-        <p className="mt-5 text-sm md:text-base">{description}</p>
+        <p className="mt-5 text-sm md:text-base">{description}</p>{' '}
+        <div className="cart-section  flex flex-row items-center">
+          <div className="flex flex-row gap-5 items-center mt-2 text-2xl  w-36 h-16 justify-center">
+            <CiCircleMinus onClick={decrement} className="cursor-pointer hover:scale-110 " /> <span>{count}</span>{' '}
+            <CiCirclePlus onClick={increment} className="cursor-pointer hover:scale-110 " />
+          </div>
+          <div className="flex flex-row items-center font-mono gap-4 border-2 p-4 cursor-pointer bg-yellow-500 rounded-full text-center hover:shadow-xl hover:">
+            <button onClick={addBasket}>Add To Cart</button>
+            <MdAddShoppingCart className="text-lg" />
+          </div>
+        </div>
       </div>
     </div>
   );

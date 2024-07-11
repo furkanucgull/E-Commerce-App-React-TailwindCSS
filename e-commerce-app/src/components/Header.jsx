@@ -3,10 +3,16 @@ import { CiLight } from 'react-icons/ci';
 import { FaMoon } from 'react-icons/fa';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Badge from '@mui/material/Badge';
+import { useSelector } from 'react-redux';
 
 function Header() {
   const navigate = useNavigate();
+
   const [theme, setTheme] = useState(true);
+
+  const { products } = useSelector(store => store.basket);
+
   const changeTheme = () => {
     const root = document.getElementById('root');
     if (theme) {
@@ -47,8 +53,9 @@ function Header() {
                   className="hover:bg-white hover:text-black rounded-full hover:scale-125"
                 />
               )}
-
-              <SlBasket />
+              <Badge badgeContent={products.length} color="error">
+                <SlBasket color="action" />
+              </Badge>
             </div>
           </div>
         </div>
