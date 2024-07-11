@@ -8,12 +8,15 @@ function BasketDetails() {
   console.log(products);
 
   return (
-    <div>
-      <h2>Sepet</h2>
+    <div className=" ">
+      <div className=" mt-6 text-2xl font-bold bg-stone-100 rounded-lg  w-6/12 h-24">
+        <h2 className=" m-5 ">Shopping Cart ({products.length})</h2>
+      </div>
+
       {products.length === 0 ? (
-        <p>Sepetiniz boş</p>
+        <p>Your cart is empty</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+        <div className="flex flex-col mt-4 gap-6">
           {products.map(product => (
             <Basket key={product.id} product={product} />
           ))}
