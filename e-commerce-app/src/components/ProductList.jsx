@@ -5,14 +5,17 @@ import Product from '../pages/Product';
 
 function ProductList() {
   const dispatch = useDispatch();
-  const { products } = useSelector(store => store.product);
-  //console.log(products);
+  const { products, searchTerm } = useSelector(store => store.product);
+
   useEffect(() => {
     dispatch(getAllProducts());
-  }, []);
+  }, [dispatch]);
+
+  const filteredProducts = products.filter(product => product.title.toLowerCase().includes(searchTerm.toLowerCase()));
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 ">
-      {products.map(product => (
+      {filteredProducts.map(product => (
         <Product key={product.id} product={product} />
       ))}
     </div>

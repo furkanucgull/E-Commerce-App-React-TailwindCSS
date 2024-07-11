@@ -4,13 +4,14 @@ import { FaMoon } from 'react-icons/fa';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Badge from '@mui/material/Badge';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSearchTerm } from '../redux/slices/ProductSlice';
 
 function Header() {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const [theme, setTheme] = useState(true);
-
+  const [search, setSearch] = useState('');
   const { products } = useSelector(store => store.basket);
 
   const changeTheme = () => {
@@ -24,6 +25,12 @@ function Header() {
     }
     setTheme(!theme);
   };
+
+  const handleSearchChange = e => {
+    setSearch(e.target.value);
+    dispatch(setSearchTerm(e.target.value));
+  };
+
   return (
     <div>
       <div>
@@ -37,6 +44,7 @@ function Header() {
           </div>
           <div className="input flex flex-row items-center gap-24">
             <input
+              onChange={handleSearchChange}
               className="outline-none 
              border-b-2 border-gray-400 py-1
              placeholder:pl-2 placeholder:italic
@@ -48,10 +56,7 @@ function Header() {
               {theme ? (
                 <FaMoon className="hover:bg-white text-gray-900 rounded-full hover:scale-125" onClick={changeTheme} />
               ) : (
-                <CiLight
-                  onClick={changeTheme}
-                  className="hover:bg-white hover:text-black rounded-full hover:scale-125"
-                />
+                <CiLight className="hover:bg-white hover:text-black rounded-full hover:scale-125" />
               )}
               <Badge badgeContent={products.length} color="error">
                 <SlBasket color="action" onClick={() => navigate('/basket-details')} href="" />
