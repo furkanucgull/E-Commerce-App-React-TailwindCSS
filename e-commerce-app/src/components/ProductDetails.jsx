@@ -7,7 +7,6 @@ import { IoIosStar } from 'react-icons/io';
 import { CiCirclePlus, CiCircleMinus } from 'react-icons/ci';
 import { MdAddShoppingCart } from 'react-icons/md';
 import { addToBasket } from '../redux/slices/BasketSlice';
-import BasketList from './BasketList';
 
 function ProductDetails() {
   const { id } = useParams();
@@ -35,7 +34,7 @@ function ProductDetails() {
       description,
       count,
     };
-    dispatch(addToBasket(payload));
+    count > 0 ? dispatch(addToBasket(payload)) : alert('count should be more than 0');
   };
   useEffect(() => {
     getProductById();

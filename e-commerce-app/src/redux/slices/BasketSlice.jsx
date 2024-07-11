@@ -32,9 +32,14 @@ export const basketSlice = createSlice({
         writeFromBasketToStorage(state.products);
       }
     },
+    removeFromBasket: (state, action) => {
+      const filteredProducts = state.products.filter(product => product.id !== action.payload.id);
+      state.products = filteredProducts;
+      writeFromBasketToStorage(state.products);
+    },
   },
 });
 
-export const { addToBasket } = basketSlice.actions;
+export const { addToBasket, removeFromBasket } = basketSlice.actions;
 
 export default basketSlice.reducer;

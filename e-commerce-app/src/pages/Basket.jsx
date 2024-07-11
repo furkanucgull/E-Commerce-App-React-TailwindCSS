@@ -1,13 +1,20 @@
 /* eslint-disable react/prop-types */
 // pages/Basket.jsx
+import { useDispatch } from 'react-redux';
+import { removeFromBasket } from '../redux/slices/BasketSlice';
 import { CiTrash } from 'react-icons/ci';
 
 function Basket({ product }) {
+  const dispatch = useDispatch();
+
+  const handleRemoveFromBasket = productId => {
+    dispatch(removeFromBasket({ id: productId }));
+  };
   if (!product) {
-    return <div>Ürün bilgisi bulunamadı</div>;
+    return <div>Product not found!</div>;
   }
 
-  const { description, image, price, title, count } = product;
+  var { description, image, price, title, count } = product;
 
   return (
     <div className="main  gap-6">
@@ -20,10 +27,10 @@ function Basket({ product }) {
               <p className="text-sm mt-auto mb-auto font-serif"> {description.substring(0, 40)}...</p>
               <p className="mb-6 font-semibold"> {price} $ </p>
             </div>
-            <div className="ml-3 flex flex-col justify-center gap-3 ">
+            <div className="ml-3 flex flex-col justify-center gap-3 w-16 ">
               <p className="text-sm  "> Count : {count}</p>
               <div className="text-xl ml-4 text-red-600 cursor-pointer hover:scale-110">
-                <CiTrash />
+                <CiTrash onClick={() => handleRemoveFromBasket(product.id)} />
               </div>
             </div>
           </div>
