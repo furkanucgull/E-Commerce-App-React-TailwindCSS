@@ -5,9 +5,9 @@ function BasketList() {
   const products = useSelector(state => state.basket);
   return (
     <div>
-      <h2>Sepet</h2>
+      <h2>Shopping Cart</h2>
       {products.length === 0 ? (
-        <p>Sepetiniz boş</p>
+        <p>Cart is emtpy</p>
       ) : (
         <div>
           {products.map(product => (

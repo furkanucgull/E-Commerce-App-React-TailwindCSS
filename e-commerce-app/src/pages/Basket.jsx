@@ -18,7 +18,7 @@ function Basket({ product }) {
             <div className="flex flex-col w-96">
               <p className="text-lg mt-auto mb-auto font-serif"> {title.substring(0, 20)}</p>
               <p className="text-sm mt-auto mb-auto font-serif"> {description.substring(0, 40)}...</p>
-              <p className="mb-6 font-semibold"> {price} € </p>
+              <p className="mb-6 font-semibold"> {price} $ </p>
             </div>
             <div className="ml-3 flex flex-col justify-center gap-3 ">
               <p className="text-sm  "> Count : {count}</p>
