@@ -38,7 +38,7 @@ function BasketDetails() {
             </div>
             <div className="flex justify-between w-full font-bold border-b-2  border-gray-300 pb-2">
               <p>Total :</p>
-              <span>{totalAmount} $</span>
+              <span>{totalAmount.toFixed(2)} $</span>
             </div>
           </div>
         </div>
