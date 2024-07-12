@@ -53,7 +53,7 @@ function ProductDetails() {
     <div className="mt-16 flex flex-col md:flex-row gap-5 ">
       <div className="product-img flex justify-center md:justify-start">
         <img
-          className="border-2 rounded-xl border-gray-200 min-w-48 min-h-48 md:w-80 md:h-80 object-contain p-6"
+          className="border-2 rounded-xl border-gray-200 w-40 h-40 md:w-80 md:h-80 object-contain p-6"
           src={image}
           alt={title}
         />

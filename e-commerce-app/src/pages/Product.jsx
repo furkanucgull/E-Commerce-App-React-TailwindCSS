@@ -11,7 +11,7 @@ function Product({ product }) {
       </a>
       <div className="px-5 pb-5 h-48 bg-white">
         <a>
-          <h5 className="text-base font-semibold tracking-tight text-gray-900 dark:text-white max-h-14">
+          <h5 className="text-base font-semibold tracking-tight  text-black dark:text-white max-h-14">
             {title.substring(0, 20)}
           </h5>
           <p className="text-sm text-black mt-1">{description.substring(0, 70)}...</p>
