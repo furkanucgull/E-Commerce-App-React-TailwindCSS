@@ -1,73 +1,34 @@
 # E-Commerce App
 
-A simple and efficient e-commerce application built with React and TailwindCSS.
+A modern e-commerce application built with **React**, **Redux Toolkit**, and **Tailwind CSS**. This app allows users to browse products, add them to a basket, and manage their shopping cart. It also integrates with a fake store API to fetch product data.
 
 ## Features
 
-- Product listing
-- Shopping cart
-- Order management
-- Responsive design
+- **Product Listing**: Fetch and display products from a fake store API.
+- **Product Search**: Search for products by name or description.
+- **Shopping Basket**: Add and remove products from the basket.
+- **Persistent Basket**: Basket data is stored in `localStorage` for persistence across page reloads.
+- **Loading State**: Display a loading spinner while fetching data.
+- **Responsive Design**: The application is fully responsive and works seamlessly on all devices.
 
-## Demo
+---
 
-You can check out the live demo of the project [here](https://e-commerceapptrial.netlify.app/).
+## Technologies Used
 
-## Getting Started
+- **React**: A JavaScript library for building user interfaces.
+- **Redux Toolkit**: A library for state management in React applications.
+- **Tailwind CSS**: A utility-first CSS framework for styling the application.
+- **Axios**: A promise-based HTTP client for making API requests.
+- **React Router DOM**: A library for handling routing in React applications.
+- **Material-UI (MUI)**: A popular React UI framework for building responsive and modern designs.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+---
 
-### Prerequisites
+## Installation
 
-Make sure you have the following installed on your system:
+To run this project locally, follow these steps:
 
-- Node.js (v14.x or later)
-- npm (v6.x or later)
-
-### Installation
-
-1. Clone the repository:
-
-    ```sh
-    git clone https://github.com/furkanucgull/E-Commerce-App-React-TailwindCSS.git
-    cd E-Commerce-App-React-TailwindCSS
-    ```
-
-2. Install the dependencies:
-
-    ```sh
-    npm install
-    ```
-
-3. Start the development server:
-
-    ```sh
-    npm run dev
-    ```
-
-The application should now be running on `http://localhost:3000`.
-
-## Built With
-
-- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
-- [TailwindCSS](https://tailwindcss.com/) - A utility-first CSS framework.
-
-## Contributing
-
-If you want to contribute to this project, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Add some feature'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Create a new Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- [React](https://reactjs.org/)
-- [TailwindCSS](https://tailwindcss.com/)
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/e-commerce-app.git
+   cd e-commerce-app
